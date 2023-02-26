@@ -1,12 +1,14 @@
 const express = require("express");
 const crypto = require("crypto");
 const api = require("./routes/api");
+const csrf = require("./routes/csrf");
 
 const app = express();
 const port = 4949;
 
 app.set("view engine", "ejs");
 app.use("/api", api);
+app.use("/csrf", csrf);
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {

