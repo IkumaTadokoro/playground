@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS検証用ページ</title>
+</head>
+<body>
+   <h1>XSS検証用ページ</h1> 
+   <div id="result"></div>
+   <a href="#" id="link">リンクをクリック</a>
+   <script>
+    const url = new URL(location.href);
+    const message = url.searchParams.get('message');
+    if (message !== null) {
+        document.querySelector("#result").textContent = message;
+    }
+   </script>
+</body>
+</html>
