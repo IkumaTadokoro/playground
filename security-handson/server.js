@@ -9,7 +9,13 @@ const port = 4949;
 app.set("view engine", "ejs");
 app.use("/api", api);
 app.use("/csrf", csrf);
-app.use(express.static("public"));
+app.use(
+  express.static("public", {
+    setHeaders: (res, path, stat) => {
+      res.header("X-Frame-Options", "DENY");
+    },
+  })
+);
 
 app.get("/", (req, res) => {
   res.end("Top Page");
