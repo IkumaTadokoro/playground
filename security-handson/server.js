@@ -33,6 +33,13 @@ app.get("/csp", (req, res) => {
   res.render("csp", { nonce: nonceValue });
 });
 
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/signup", (req, res) => {
+  console.log(req.body);
+  res.end("signup");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
